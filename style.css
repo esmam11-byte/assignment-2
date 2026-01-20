@@ -24,7 +24,6 @@ body {
   color: var(--text);
 }
 
-
 .container {
   width: min(1120px, 100% - 48px);
   margin: 0 auto;
