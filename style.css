@@ -256,14 +256,70 @@ padding-bottom: 12px;
   position: absolute;
   top: 50px;
   right: 30px;
-  background: #39ff88;
+  background: linear-gradient(135deg, #39ff88 0%, #2ecc71 100%);
   color: #050013;
   font-size: 20px;
-  font-weight: 600;
-  padding: 4px 12px;
+  font-weight: 700;
+  padding: 6px 16px;
   border-radius: 999px;
+  box-shadow: 
+    0 8px 25px rgba(57, 255, 136, 0.4),
+    0 0 20px rgba(57, 255, 136, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  animation: badgePop 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+  transform-origin: center bottom;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
 }
 
+@keyframes badgePop {
+  0% {
+    transform: scale(0) rotate(-12deg) translateY(30px);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(1.1) rotate(2deg) translateY(-10px);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(0.95) rotate(-1deg) translateY(5px);
+  }
+  60% {
+    transform: scale(1.05) rotate(1deg) translateY(-3px);
+  }
+  80% {
+    transform: scale(1) rotate(0deg) translateY(0);
+  }
+  100% {
+    transform: scale(1) rotate(0deg) translateY(0);
+  }
+}
+
+.hero-badge::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, #39ff88, #2ecc71, #27ae60, #39ff88);
+  border-radius: 999px;
+  z-index: -1;
+  opacity: 0.7;
+  animation: badgeGlow 2s ease-in-out infinite alternate;
+  filter: blur(8px);
+}
+
+@keyframes badgeGlow {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
 .hero-title {
   font-size: 40px;
   margin-bottom: 6px;
@@ -812,11 +868,13 @@ html, body {
   }
   
   .hero-badge {
-    top: 20px;
-    right: 10px;
+   position: absolute;
+  top: 40px;
+  right: 10px;
     font-size: 14px;
     padding: 2px 8px;
   }
+  
   
   .hero-title {
     font-size: 32px;
